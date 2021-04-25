@@ -1,0 +1,16 @@
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\bin\Debug\net5.0\BackLightLine.exe
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\bin\Debug\net5.0\BackLightLine.deps.json
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\bin\Debug\net5.0\BackLightLine.runtimeconfig.json
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\bin\Debug\net5.0\BackLightLine.runtimeconfig.dev.json
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\bin\Debug\net5.0\BackLightLine.dll
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\bin\Debug\net5.0\ref\BackLightLine.dll
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\bin\Debug\net5.0\BackLightLine.pdb
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.csprojAssemblyReference.cache
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.GeneratedMSBuildEditorConfig.editorconfig
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.AssemblyInfoInputs.cache
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.AssemblyInfo.cs
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.csproj.CoreCompileInputs.cache
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.dll
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\ref\BackLightLine.dll
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.pdb
+D:\XXYwork\riderTest\BackLightLine\BackLightLine\obj\Debug\net5.0\BackLightLine.genruntimeconfig.cache

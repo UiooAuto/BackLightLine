@@ -1,0 +1,16 @@
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\bin\Debug\net5.0\BuckLightLine.exe
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\bin\Debug\net5.0\BuckLightLine.deps.json
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\bin\Debug\net5.0\BuckLightLine.runtimeconfig.json
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\bin\Debug\net5.0\BuckLightLine.runtimeconfig.dev.json
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\bin\Debug\net5.0\BuckLightLine.dll
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\bin\Debug\net5.0\ref\BuckLightLine.dll
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\bin\Debug\net5.0\BuckLightLine.pdb
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.csprojAssemblyReference.cache
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.GeneratedMSBuildEditorConfig.editorconfig
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.AssemblyInfoInputs.cache
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.AssemblyInfo.cs
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.csproj.CoreCompileInputs.cache
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.dll
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\ref\BuckLightLine.dll
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.pdb
+D:\XXYwork\riderTest\BuckLightLine\BuckLightLine\obj\Debug\net5.0\BuckLightLine.genruntimeconfig.cache
