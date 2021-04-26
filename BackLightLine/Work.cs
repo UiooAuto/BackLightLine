@@ -11,42 +11,55 @@ namespace BackLightLine
     {
         public Socket plcSocket;
         public Socket localSocket;
-        public string readCmd = "01WRD ";
-        public string writeCmd = "01WWR ";
+        public string readCmd = "01WRD";
+        public string writeCmd = "01WWR";
         public string camCmdAds;
         public string camResAds;
         public byte[] resBytes = new byte[1024];
         public string result;
         public bool san = true;
+        private string lastCmd = "";
 
         public void go()
         {
             Thread currentThread = Thread.CurrentThread;
-            lock (this)
+
+            while (san)
             {
-                while (san)
+                for (int i = 0; i < resBytes.Length; i++)
+                {
+                    resBytes[i] = 0;
+                }
+
+                lock (this)
                 {
                     result = "";
-                    var plcCmdStr = InspectUtils.receiveDataFromTarget(plcSocket,resBytes);
-                    var plcCmd = int.Parse(plcCmdStr);
+                    /*
+                     *var plcCmdStr = InspectUtils.receiveDataFromTarget(plcSocket,resBytes);
+                     *var plcCmd = int.Parse(plcCmdStr);
+                     */
                     /*
                      * 读取PLC命令
                      */
-                    /*int plcCmd = getPlcCmd(plcSocket, camCmdAds);*/
-                    Console.WriteLine(plcCmd + "---" + currentThread.Name);
-                    if (plcCmd == 1)
+                    int plcCmd = getPlcCmd(plcSocket, camCmdAds);
+                    if (plcCmd != 0)
                     {
-                        result = readInspect(1);
+                        readInspect(plcCmd);
+                    }
+                    /*if (plcCmd == 1)
+                    {
+                        Console.WriteLine("p1");
 
                     }
                     else if (plcCmd == 2)
                     {
-                        result = readInspect(2);
+                        Console.WriteLine("p2");
                     }
                     else if (plcCmd == 3)
                     {
-                        result = readInspect(3);
-                    }
+                        Console.WriteLine("p3");
+                    }*/
+                    /*
                     if (result == "1")
                     {
                         setPlcCmd(plcSocket, camResAds, "0001");
@@ -54,11 +67,11 @@ namespace BackLightLine
                     else if (result == "2")
                     {
                         setPlcCmd(plcSocket, camResAds, "0002");
-                    }
-                    Thread.Sleep(200);
+                    }*/
+                    result = "";
+                    Thread.Sleep(100);
                 }
             }
-
         }
 
         private string setPlcCmd(Socket socket, string plcAddress, string setResult)
@@ -69,34 +82,45 @@ namespace BackLightLine
 
         private int getPlcCmd(Socket socket, string plcAddress)
         {
-            string cmd = InspectUtils.sendCmdToTarget(socket, readCmd + plcAddress + "\r\n");
-            Console.WriteLine(cmd);
-            if (cmd == "11OK0001")
+            int enCamId = 0;
+            InspectUtils.sendCmdToTarget(socket, readCmd + plcAddress + "\r\n");
+            var cmd = InspectUtils.receiveDataFromTarget(socket, new byte[1024]);
+            var indexOf = cmd.IndexOf('\r');
+            if (indexOf != -1)
             {
-                InspectUtils.sendCmdToTarget(plcSocket, "ok");
+                cmd = cmd.Substring(0, indexOf);
+            }
+
+            if (cmd == "11OK0001" && cmd != lastCmd)
+            {
+                Console.WriteLine(Thread.CurrentThread.Name + "触发");
                 if (plcAddress == "D6030 01")
                 {
-                    return 1;
+                    enCamId = 1;
                 }
-                else if (plcAddress == "D8030 01")
+
+                if (plcAddress == "D8030 01")
                 {
-                    return 2;
+                    enCamId = 2;
                 }
-                else if (plcAddress == "D10030 01")
+
+                if (plcAddress == "D10030 01")
                 {
-                    return 3;
+                    enCamId = 3;
                 }
             }
-            return 0;
+
+            lastCmd = (string) cmd.Clone();
+            return enCamId;
         }
 
         private string readInspect(int camId)
         {
-            string str = camId.ToString() + '\r';
+            string str = camId.ToString() + ';';
             InspectUtils.sendCmdToTarget(localSocket, str);
             var receiveDataFromTarget = InspectUtils.receiveDataFromTarget(localSocket, resBytes);
-            Console.WriteLine(receiveDataFromTarget+"---Inspect");
-            return receiveDataFromTarget;
+            Console.WriteLine(receiveDataFromTarget + "---Inspect");
+            return "receiveDataFromTarget";
         }
     }
 }
