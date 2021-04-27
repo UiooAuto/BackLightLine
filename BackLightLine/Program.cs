@@ -24,11 +24,11 @@ namespace BackLightLine
             var localPort = 5024;
 
             string cam1CmdAds = "D6030 01";
-            string cam1ResAds = "D6032 01";
+            string cam1ResAds = "D6032 01 ";
             string cam2CmdAds = "D8030 01";
-            string cam2ResAds = "D8032 01";
+            string cam2ResAds = "D8032 01 ";
             string cam3CmdAds = "D10030 01";
-            string cam3ResAds = "D10032 01";
+            string cam3ResAds = "D10032 01 ";
 
             Socket plc1Socket = InspectUtils.connectToTarget(plcIp1, plcPort);
             Socket plc2Socket = InspectUtils.connectToTarget(plcIp2, plcPort);

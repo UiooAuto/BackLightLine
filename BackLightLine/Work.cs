@@ -44,30 +44,16 @@ namespace BackLightLine
                     int plcCmd = getPlcCmd(plcSocket, camCmdAds);
                     if (plcCmd != 0)
                     {
-                        readInspect(plcCmd);
+                        result = readInspect(plcCmd);
                     }
-                    /*if (plcCmd == 1)
-                    {
-                        Console.WriteLine("p1");
-
-                    }
-                    else if (plcCmd == 2)
-                    {
-                        Console.WriteLine("p2");
-                    }
-                    else if (plcCmd == 3)
-                    {
-                        Console.WriteLine("p3");
-                    }*/
-                    /*
                     if (result == "1")
                     {
-                        setPlcCmd(plcSocket, camResAds, "0001");
+                        setPlcCmd(plcSocket, camResAds, "0001\r\n");
                     }
                     else if (result == "2")
                     {
-                        setPlcCmd(plcSocket, camResAds, "0002");
-                    }*/
+                        setPlcCmd(plcSocket, camResAds, "0002\r\n");
+                    }
                     result = "";
                     Thread.Sleep(100);
                 }
@@ -76,7 +62,8 @@ namespace BackLightLine
 
         private string setPlcCmd(Socket socket, string plcAddress, string setResult)
         {
-            string rtn = InspectUtils.sendCmdToTarget(socket, writeCmd + plcAddress + " " + setResult + "\r\n");
+            Console.WriteLine(writeCmd + plcAddress + setResult + "\r\n");
+            string rtn = InspectUtils.sendCmdToTarget(socket, writeCmd + plcAddress + setResult + "\r\n");
             return rtn;
         }
 
@@ -118,9 +105,9 @@ namespace BackLightLine
         {
             string str = camId.ToString() + ';';
             InspectUtils.sendCmdToTarget(localSocket, str);
-            var receiveDataFromTarget = InspectUtils.receiveDataFromTarget(localSocket, resBytes);
-            Console.WriteLine(receiveDataFromTarget + "---Inspect");
-            return "receiveDataFromTarget";
+            var receiveData = InspectUtils.receiveDataFromTarget(localSocket, resBytes);
+            Console.WriteLine(receiveData + "---Inspect");
+            return receiveData;
         }
     }
 }
